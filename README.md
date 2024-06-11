@@ -30,13 +30,13 @@ Next, Please find this in the code, and change the "SITE-KEY_ to your Cloudflare
 ```
 
 ## How to get the cloudflare key?
-- 1. Go To Cloudflare
+1. Go To Cloudflare
 
-- 2. Go to Turnstile 
+2. Go to Turnstile 
 
-- 3. Press "Add Site"
+3. Press "Add Site"
 
-- 4. Give it a name, Then click "Domains", "Managed", Then select "No" and press "Create". It will give you your Site Key!
+4. Give it a name, Then click "Domains", "Managed", Then select "No" and press "Create". It will give you your Site Key!
 
 ## How do I link DDoS Guardian to Nginx?
 There are a few ways you can do this! Look below to find out how.
