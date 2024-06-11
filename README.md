@@ -7,7 +7,7 @@ The way it works is by adding a firewall that goes through DDoS Guardian that se
 ## Level 7 Setup
 
 ### Dependency
-You will need DDoS Guardian to use this. Please [Install DDoS Guardian](https://github.com/xlelord9292/ddos-guardian "Install DDoS Guardian")
+You will need DDoS Guardian to use this. Please [Install DDoS Guardian](https://github.com/DDOS-Guardian/DDoS-Guardian)
 
 ### Installing
 You then go to the directory ``/etc/nginx/conf.d/ddos-guardian-layer-7`` and download **protection.lua** into it. Run this below to download it:
