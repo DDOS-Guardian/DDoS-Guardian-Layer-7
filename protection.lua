@@ -79,7 +79,7 @@ local function display_recaptcha(client_ip)
         <body>
             <div class="box">
                 <h1>Checking Your Browser...</h1>
-		<p>Protected By DDOS Guardian</p>
+		<p>Protected By DDoS Guardian</p>
                 <div class="g-recaptcha" data-sitekey="SITE-KEY" data-callback="onSubmit"></div>
             </div>
         </body>
