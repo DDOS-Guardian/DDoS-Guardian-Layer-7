@@ -53,6 +53,22 @@ u can edit the files and add it below this line in ``nginx.conf``:
 location / {
 ```
 
+## What About Logging?
+u may have to go to /var/log and make a folder named ``ddos-guardian`` then make a file named ``access.log``
+
+
+## New Updates
+```yaml
+- Upgraded Speed Boosters
+
+- New Blacklist Page
+
+- Anti Inject System
+
+- Logging
+
+- Checking System Is Now Working```
+
 # Support
 If you need help trobleshooting, Please join the discord!
 https://discord.gg/V9RucxEw82
