@@ -67,7 +67,9 @@ u may have to go to /var/log and make a folder named ``ddos-guardian`` then make
 
 - Logging
 
-- Checking System Is Now Working```
+- Checking System Is Now Working
+```
+
 
 # Support
 If you need help trobleshooting, Please join the discord!
