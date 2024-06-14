@@ -53,7 +53,17 @@ local function delete_cookie()
     ngx.header['Set-Cookie'] = 'TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly'
 end
 
+local logged_ips = {}
+
+-- Maximum allowed size of the log file in kilobytes (adjust as needed)
+local max_log_file_size_kb = 1024 
+
 local function log_access(client_ip, request_uri, request_size, security_level, captcha_solved)
+    -- Check if this client IP has already been logged
+    if logged_ips[client_ip] then
+        return  -- If IP has been logged, skip logging again
+    end
+
     local log_line = string.format('%s - %s - Requests: %s, Security: %s, Captcha: %s\n',
         client_ip,
         request_uri,
@@ -65,20 +75,40 @@ local function log_access(client_ip, request_uri, request_size, security_level, 
     local ddos_guardian_dir = "/var/log/ddos-guardian"
     local ddos_guardian_log_file = ddos_guardian_dir .. "/access.log"
 
-      local mkdir_command = "mkdir -p " .. ddos_guardian_dir
+    -- Ensure directory exists
+    local mkdir_command = "mkdir -p " .. ddos_guardian_dir
     os.execute(mkdir_command)
 
-       local ddos_guardian_file, ddos_guardian_err = io.open(ddos_guardian_log_file, "a")
+  
+    local ddos_guardian_file, ddos_guardian_err = io.open(ddos_guardian_log_file, "a")
     if ddos_guardian_file then
+        -- Get current size of the log file in KB
+        local current_file_size_kb = ddos_guardian_file:seek("end") / 1024
+        
+
+        if current_file_size_kb >= max_log_file_size_kb then
+   
+            ddos_guardian_file:close()
+            ddos_guardian_file = io.open(ddos_guardian_log_file, "w")
+            if not ddos_guardian_file then
+                ngx.log(ngx.ERR, "Failed to truncate ddos-guardian access log file")
+            end
+        end
+
+  
         local success, write_err = ddos_guardian_file:write(log_line)
         if not success then
             ngx.log(ngx.ERR, "Failed to write to ddos-guardian access log file: " .. write_err)
         end
         ddos_guardian_file:close()
+        
+    
+        logged_ips[client_ip] = true
     else
         ngx.log(ngx.ERR, "Failed to open ddos-guardian access log file: " .. ddos_guardian_err)
     end
 end
+
 
 local function display_recaptcha(client_ip)
     ngx.log(ngx.ERR, "Displaying reCAPTCHA for IP: " .. client_ip)
