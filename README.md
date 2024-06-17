@@ -65,6 +65,8 @@ u may have to go to /var/log and make a folder named ``ddos-guardian`` then make
 
 - Warning Keep The IP 109.71.253.231 White Listed Or Else This Will Not Work
 
+- Removed Logging, The Logging System Was Causing lag To The Server That Is under attack therefore we removed it
+
 ```
 
 
