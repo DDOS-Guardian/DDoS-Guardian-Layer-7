@@ -59,15 +59,12 @@ u may have to go to /var/log and make a folder named ``ddos-guardian`` then make
 
 ## New Updates
 ```yaml
-- Upgraded Speed Boosters
+- Redirection When The Website is Being DDOSED It will Send The High Requests To Our Dedicated Server To Handle the Higher Requests
 
-- New Blacklist Page
+- New Firewall Upgrade
 
-- Anti Inject System
+- Warning Keep The IP 109.71.253.231 White Listed Or Else This Will Not Work
 
-- Logging
-
-- Checking System Is Now Working
 ```
 
 
