@@ -45,6 +45,8 @@ There are a few ways you can do this! Look below to find out how.
  You can edit the ``nginx.conf``, And add this below the ``http {``:
 ```lua
 access_by_lua_file /etc/nginx/conf.d/ddos-guardian-layer-7/protection.lua;
+lua_shared_dict ddos_guardian_limit_dict 10m;
+
 ```
 
 #### Method 2:
