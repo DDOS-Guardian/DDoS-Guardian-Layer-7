@@ -41,18 +41,16 @@ Next, Please find this in the code, and change the "SITE-KEY_ to your Cloudflare
 ## How do I link DDoS Guardian to Nginx?
 There are a few ways you can do this! Look below to find out how.
 
-#### Method 1: 
- You can edit the ``nginx.conf``, And add this below the ``http {``:
+
+#### Method 1:
+u can edit the files and add it below this line in ``nginx.conf`` or ``/etc/nginx/sites-available/example.conf``:
 ```lua
-access_by_lua_file /etc/nginx/conf.d/ddos-guardian-layer-7/protection.lua;
 lua_shared_dict ddos_guardian_limit_dict 10m;
+server {
 
-```
 
-#### Method 2:
-u can edit the files and add it below this line in ``nginx.conf``:
-```lua
 location / {
+access_by_lua_file /etc/nginx/conf.d/ddos-guardian-layer-7/protection.lua;
 ```
 
 ## What About Logging?
