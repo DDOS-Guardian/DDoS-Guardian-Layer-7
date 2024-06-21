@@ -53,6 +53,12 @@ location / {
 access_by_lua_file /etc/nginx/conf.d/ddos-guardian-layer-7/protection.lua;
 ```
 
+## Dont Work?
+Try Running
+```
+sudo apt-get install libnginx-mod-http-lua
+```
+
 ## What About Logging?
 u may have to go to /var/log and make a folder named ``ddos-guardian`` then make a file named ``access.log``
 
